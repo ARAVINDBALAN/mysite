@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student</title>
+
+	  <style>
+table, th, td {
+   
+   
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+table#t01 {
+    width: 100%;    
+    background-color: #f1f1c1;
+}
+table#t01 th {
+    background-color: grey;
+    color: white;
+}
+</style>
+</head>
+<body>
+
+<section class="page-section">
+  <div class="container" style="width:40%">
+<div class="bg-faded p-5 d-flex ml-auto rounded">
+<h1 class="section-heading mb-0">
+<span class="section-heading-lower" width="50%" height="50%" text>STUDENT DETAILS</span>
+</h1>
+</div>
+
+  <table id="t01" style="width:100%">
+  <tr>
+    <th>ID</th>
+    <th>NAME</th> 
+    <th>EMAIL</th>
+    <th>PHONE NO.</th>
+
+  </tr>
+  {% for student in s_list %}
+  <tr>
+    <td>{{ student.id }}</td>
+    <td>{{ student.name }}</td>
+    <td>{{ student.email }}</td>
+    <td>{{ student.ph_no }}</td>
+    
+  </tr>
+{% endfor %}
+</table>
+</body>
+</html>
+{%  endblock %}
