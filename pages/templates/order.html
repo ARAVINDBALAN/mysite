@@ -55,8 +55,14 @@ table#t01 th {
   {{form.as_p}}
   <input type="submit" name="">
 </form>
+{% if messages %}
+{%for m in messages%}
+<script type="text/javascript">
+  alert(m);
+</script>
+  {%endfor%}
+  {%endif%}
 
-  
 <center><a class=" text-uppercase text-expanded" href="{% url 'profile' %}">View Profile</a></center>
 
 </div>

@@ -28,6 +28,7 @@ def placeorder(request):
 		if form.is_valid():
 			f = form.save(commit=False)
 			avail = form.cleaned_data['i_id'].qty
+
 			req = form.cleaned_data['quantity_order']
 			if (req>avail):
 				messages.success(request,'enter valid no of item less than max limit')
@@ -37,9 +38,9 @@ def placeorder(request):
 				pri = m.price
 				f.amount = pri*req
 				m.save()
-			print(avail,req)
-			f.owner = request.user
-			f.save()		
+				print(avail,req)
+				f.owner = request.user
+				f.save()		
 	else :
 		form = ordernow()
 	return render(request,'order.html',{'form':form,'m_list':m_list})					
